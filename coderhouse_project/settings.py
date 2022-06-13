@@ -44,11 +44,11 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'course',
+    'software',
     'home',
-    'homework',
-    'profesor',
-    'student',
+    'discussion',
+    'hardware',
+    'gaming',
     'user',
 ]
 

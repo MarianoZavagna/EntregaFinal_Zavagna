@@ -1,0 +1,33 @@
+{% extends "home/index.html" %}
+{% load static %}
+{% block coderhouse_project_content %}
+
+<h2>Lista de Discusiones</h2>
+{% if user.is_authenticated %}
+<a class="card_custom" href="{% url 'discussion:discussion-add' %}">Crear nueva Discusión</a>
+{% endif %}
+<hr></hr>
+<ul>
+    {% for discussion in discussion_list %}
+    <li>
+        {{ discussion }}
+        (
+            <a href="{% url 'discussion:discussion-detail' discussion.id %}">
+                <i class="fa fa-eye" style="color: rgb(0, 195, 255);"> </i>
+            </a>
+        {% if user.is_authenticated %}
+        |
+        <a href="{% url 'discussion:discussion-update' discussion.id %}">
+            <i class="fa fa-pencil" style="color: rgb(190, 146, 0);"> </i>
+        </a>
+        |
+        <a href="{% url 'discussion:discussion-delete' discussion.id %}">
+            <i class="fa fa-trash" style="color: rgb(243, 13, 13);"> </i>
+        </a>
+        {% endif %}
+        )
+    </li>
+    {% endfor %}
+</ul>
+
+{% endblock %}

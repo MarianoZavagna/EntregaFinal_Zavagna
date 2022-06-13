@@ -1,0 +1,12 @@
+{% extends "home/index.html" %}
+{% load static %}
+{% block coderhouse_project_content %}
+
+<h2>Detalle del Gaming</h2>
+<hr></hr>
+<p><h3>Videojuego: {{ gaming.name }}</h3></p>
+<p><h4>Platafroma: {{ gaming.platform }}</h4></p>
+<h4>Descripción:</h4>
+<p><textarea readonly rows="7" cols="90" >{{ gaming.description }}</textarea></p>
+<p><a class="btn2 btn-primary" href="{% url 'gaming:gaming-list' %}">Regresar a la lista de gamings</a></p>
+{% endblock %}

@@ -1,0 +1,11 @@
+{% extends "home/index.html" %}
+{% load static %}
+{% block coderhouse_project_content %}
+
+<h2>Detalle del Software</h2>
+<hr></hr>
+<p><h3>{{ software.type }}: {{ software.name }}</h3></p>
+<h4>Descripción:</h4>
+<p><textarea readonly rows="7" cols="90" >{{ software.description }}</textarea></p>
+<p><a class="btn2 btn-primary" href="{% url 'software:software-list' %}">Regresar a la lista de softwares</a></p>
+{% endblock %}
