@@ -2,10 +2,22 @@
 {% load static %}
 {% block coderhouse_project_content %}
 
-<h2>Detalle del Discussion</h2>
+<h3>Discusión General</h3>
 <hr></hr>
+
 <p><h3>Título: {{ discussion.title }}</h3></p>
-<h4>Descripción:</h4>
+
+{% if discussion.image %}
+<img src="{{ discussion.image.url }}">
+<img src="{{ discussion.get_image_url_ctx }}" class="img-responsive thumbnail " alt="img">
+{% endif %}
+<br><br>
+<h7>Descripción:</h7>
 <p><textarea readonly rows="7" cols="90" >{{ discussion.description }}</textarea></p>
+
+<h7>Autor: {{ discussion.author.first_name }} {{ discussion.author.last_name }}</h7> <br>
+
+<h7>Fecha de publicación: {{ discussion.date_posted }}</h7> <br><br>
+
 <p><a class="btn2 btn-primary" href="{% url 'discussion:discussion-list' %}">Regresar a Discusiones Generales</a></p>
 {% endblock %}
