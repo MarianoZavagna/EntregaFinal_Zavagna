@@ -5,7 +5,7 @@
 <h2>Formulario para guardar/editar discussion</h2>
 <hr></hr>
 
-<form action="" method="POST">
+<form method="post" enctype="multipart/form-data">
     {% csrf_token %}
     {{ form.as_p }}
     <input type="submit" class="btn btn-primary" value="Guardar discussion" />

@@ -25,6 +25,12 @@ class DiscussionCreateView(LoginRequiredMixin, CreateView):
     success_url = reverse_lazy('discussion:discussion-list')
     fields = ['title', 'image', 'description']
 
+# Si la forma es valida, el usuario podrá crear la 
+# discusión a su nombre
+    def form_valid(self, form):
+        form.instance.author = self.request.user
+        return super().form_valid(form)
+
 
 class DiscussionUpdateView(LoginRequiredMixin, UpdateView):
     model = Discussion
