@@ -44,3 +44,20 @@ def search(request):
         context=context_dict,
         template_name="home/main.html",
     )
+
+
+def about(request):
+    return render(request, "home/about.html")
+
+
+def contact(request):
+    return render(request, "home/contact.html")
+
+
+def policy(request):
+    return render(request, "home/policy.html")
+
+
+def terms(request):
+    return render(request, "home/terms.html")
+

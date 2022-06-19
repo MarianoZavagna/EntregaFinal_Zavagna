@@ -4,36 +4,37 @@
 
 
 {% if user.is_authenticated %}
-<div class="text-center">
+<div class="text-right">
     <h2>Bienvenido {{ user.username }}</h2>
-    <h3><a style="color: rgb(3, 36, 184)" href="{% url 'user:avatar-load' %}">Cambiar Avatar</a></h3>
     <img height="160px" src="{{url}}" alt="">
 </div>
 {% endif %}
-<h2>Buscador de discusiones</h2>
-<hr>
-</hr>
 
+
+<hr></hr>
 <form action="/search" method="GET">
     <div>
-        <input type="text" name="search_param" id="discussion_title" placeholder="Buscar.."
+        <input type="text" name="search_param" id="discussion_title" placeholder="Buscar Post"
         {% if search_param %} value="{{ search_param }}" {% endif %}
         >
         <input type="submit" value="Buscar">
-        <a style="color: blue" href="{% url 'home:main' %}"><i class="fa fa-undo"></i></a>
+        <a  href="{% url 'home:main' %}">
+            <button type="button" class="btn btn-outline-light fa fa-undo"></button>
+        </a>
+
     </div>
 
 </form>
 
-<hr>
-</hr>
+<hr></hr>
 
+<h5>Últimas discusiones</h5>
 
 {% if discussions %}
 <ul>
     {% for discussion in discussions %}
     <li>
-        Programa: {{discussion.title}} <br>
+        {{discussion.title}} ----> por: {{discussion.author.first_name}} {{discussion.author.last_name}} - {{discussion.date_posted}}<br>
     </li>
     {% endfor %}
 </ul>

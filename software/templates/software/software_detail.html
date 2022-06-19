@@ -2,10 +2,14 @@
 {% load static %}
 {% block coderhouse_project_content %}
 
-<h2>Detalle del Software</h2>
+<p><a class="btn2 btn-danger" href="{% url 'software:software-list' %}">Regresar</a></p>
 <hr></hr>
-<p><h3>{{ software.type }}: {{ software.name }}</h3></p>
-<h4>Descripción:</h4>
+
+<p><h3>Nombre: {{ software.name }}</h3></p>
+<h5>Tipo: {{ software.type }}</h5>
+<h5>Descripción:</h5>
 <p><textarea readonly rows="7" cols="90" >{{ software.description }}</textarea></p>
-<p><a class="btn2 btn-primary" href="{% url 'software:software-list' %}">Regresar a la lista de softwares</a></p>
+
+<hr></hr>
+<p><a class="btn2 btn-danger" href="{% url 'software:software-list' %}">Regresar</a></p>
 {% endblock %}

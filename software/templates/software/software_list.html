@@ -11,21 +11,19 @@
     {% for software in software_list %}
     <li>
         {{software}}
-        (
+
             <a href="{% url 'software:software-detail' software.id %}">
-                <i class="fa fa-eye" style="color: rgb(0, 195, 255);"> </i>
+                <button type="button" class="btn btn-outline-primary btn-sm fa fa-eye" style="color: rgb(255, 255, 255);"></button>
             </a>
         {% if user.is_authenticated %}
-        |
         <a href="{% url 'software:software-update' software.id %}">
-            <i class="fa fa-pencil" style="color: rgb(190, 146, 0);"> </i>
+            <button type="button" class="btn btn-outline-warning btn-sm fa fa-pencil" style="color: rgb(255, 255, 255);"></button>
         </a>
-        |
         <a href="{% url 'software:software-delete' software.id %}">
-            <i class="fa fa-trash" style="color: rgb(243, 13, 13);"> </i>
+            <button type="button" class="btn btn-outline-danger btn-sm fa fa-trash" style="color: rgb(255, 255, 255);"></button>
         </a>
+
         {% endif %}
-        )
     </li>
     {% endfor %}
 </ul>

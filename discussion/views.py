@@ -1,13 +1,13 @@
 
+#from xml.etree.ElementTree import Comment
 from django.urls import reverse_lazy
 from django.views.generic import ListView
 from django.views.generic.detail import DetailView
 from django.views.generic.edit import CreateView, UpdateView, DeleteView
 from django.contrib.auth.mixins import LoginRequiredMixin
-from discussion.models import ImagePost, Discussion
+from discussion.models import ImagePost, Discussion, Comment
 
 
-from discussion.models import Discussion
 
 class DiscussionListView(ListView):
     model = Discussion
@@ -41,6 +41,16 @@ class DiscussionUpdateView(LoginRequiredMixin, UpdateView):
 class DiscussionDeleteView(LoginRequiredMixin, DeleteView):
     model = Discussion
     success_url = reverse_lazy('discussion:discussion-list')
+
+
+class CommentCreateView(LoginRequiredMixin, CreateView):
+    model = Comment
+    template_name = "discussion/add_comment.html"
+    fields = ['description']
+
+    def form_valid(self, form):
+        form.instance.author = self.request.user
+        return super().form_valid(form)
 
 
 def get_image_url_ctx(request):

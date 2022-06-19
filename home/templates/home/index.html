@@ -24,16 +24,16 @@
         <!-- Navigation-->
         <nav class="navbar navbar-light bg-light static-top">
             <div class="container">
-                <a class="navbar-brand" href="{% url 'home:main' %}">Home</a>
+                <a class="navbar-brand" href="{% url 'home:main' %}">Inicio</a>
                 <a class="navbar-brand" href="{% url 'hardware:hardware-list' %}">Hardware</a>
                 <a class="navbar-brand" href="{% url 'software:software-list' %}">Softwares</a>
                 <a class="navbar-brand" href="{% url 'gaming:gaming-list' %}">Gaming</a>
                 <a class="navbar-brand" href="{% url 'discussion:discussion-list' %}">Discusiones</a>
                 {% if user.is_authenticated %}
-                <a class="btn btn-secondary" href="{% url 'user:user-update' %}">Editar usuario</a>
-                <a class="btn btn-primary" href="{% url 'user:user-logout' %}">Cerrar Sesión</a>
+                <a class="btn btn-secondary" href="{% url 'user:user-update' %}">Mi Perfil</a>
+                <a class="btn btn-danger" href="{% url 'user:user-logout' %}">Cerrar Sesión</a>
                 {% else %}
-                <a class="btn btn-primary" href="{% url 'user:user-login' %}">Iniciar Sesión</a>
+                <a class="btn btn-danger" href="{% url 'user:user-login' %}">Iniciar Sesión</a>
                 {% endif %}
             </div>
         </nav>
@@ -42,9 +42,9 @@
             <div class="container position-relative">
                 <div class="row justify-content-center">
                     <div class="col-xl-6">
-                        <div class="text-center text-white">
+                        <div class="text-left text-white">
                             <!-- Page heading-->
-                            <h1 class="mb-5">Este es nuestro Playground Avanzado <br> Django-CoderHouse</h1>
+                            <h6 class="mb-10"> MBlog - Blog de Informática </h6>
                             {% if messages %}
                                 {% for message in messages %}
                                 <h4><p style="color: rgb(131, 31, 0)" {% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</p></h4>
@@ -65,37 +65,27 @@
         <footer class="footer bg-light">
             <div class="container">
                 {% if user.is_superuser %}
-                    <h5><p style="color: rgb(0, 20, 131)" >SuperUser</p></h5>
+                    <h5><p style="color: rgb(211, 0, 0)" >SuperUser</p></h5>
                 {% else %}
-                    <h5><p style="color: rgb(0, 20, 131)" >Not SuperUser</p></h5>
+                    <h5><p style="color: rgb(212, 0, 0)" >Not SuperUser</p></h5>
                 {%endif%}
             </div>
             <div class="container">
                 <div class="row">
                     <div class="col-lg-6 h-100 text-center text-lg-start my-auto">
                         <ul class="list-inline mb-2">
-                            <li class="list-inline-item"><a href="#!">About</a></li>
+                            <li class="list-inline-item"><a href="{% url 'home:about' %}" style="color: rgb(215, 0, 0);">Acerca de</a></li>
                             <li class="list-inline-item">⋅</li>
-                            <li class="list-inline-item"><a href="#!">Contact</a></li>
+                            <li class="list-inline-item"><a href="{% url 'home:contact' %}" style="color: rgb(215, 0, 0);">Contacto</a></li>
                             <li class="list-inline-item">⋅</li>
-                            <li class="list-inline-item"><a href="#!">Terms of Use</a></li>
+                            <li class="list-inline-item"><a href="{% url 'home:terms' %}" style="color: rgb(215, 0, 0);">Terminos de Uso</a></li>
                             <li class="list-inline-item">⋅</li>
-                            <li class="list-inline-item"><a href="#!">Privacy Policy</a></li>
+                            <li class="list-inline-item"><a href="{% url 'home:policy' %}" style="color: rgb(215, 0, 0);">Política de Privacidad</a></li>
                         </ul>
-                        <p class="text-muted small mb-4 mb-lg-0">&copy; Your Website 2022. All Rights Reserved.</p>
+                        <p class="text-muted small mb-4 mb-lg-0">&copy; MBlog. Todos los derechos reservados.</p>
                     </div>
                     <div class="col-lg-6 h-100 text-center text-lg-end my-auto">
-                        <ul class="list-inline mb-0">
-                            <li class="list-inline-item me-4">
-                                <a href="#!"><i class="bi-facebook fs-3"></i></a>
-                            </li>
-                            <li class="list-inline-item me-4">
-                                <a href="#!"><i class="bi-twitter fs-3"></i></a>
-                            </li>
-                            <li class="list-inline-item">
-                                <a href="#!"><i class="bi-instagram fs-3"></i></a>
-                            </li>
-                        </ul>
+
                     </div>
                 </div>
             </div>

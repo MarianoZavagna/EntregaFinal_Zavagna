@@ -2,14 +2,23 @@
 {% load static %}
 {% block coderhouse_project_content %}
 
-<h2>Formulario para editar usuarios</h2>
+<h2>Perfil de Usuario</h2>
 <hr></hr>
-<h3>Usuario: {{user.username}}</h3>
+<h4>Usuario: {{user.username}}</h4>
 
+<div class="text-right">
+    <img height="160px" src="{{ user.image.url }}" alt="">
+    <a href="{% url 'user:avatar-load' %}">
+        <button type="button" class="btn btn-outline-warning fa fa-pencil">Cambiar Avatar</button>
+    </a>
+    <br><br>
+
+
+    
 <form action="" method="POST">
     {% csrf_token %}
     {{ form.as_p }}
-    <input type="submit" class="btn btn-primary" value="Guardar Usuario" />
+    <input type="submit" class="btn btn-danger" value="Guardar Usuario" />
 </form>
 
 {% endblock %}

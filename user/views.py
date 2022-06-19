@@ -99,3 +99,4 @@ def avatar_load(request):
         context={"form": form},
         template_name="user/avatar_form.html",
     )
+

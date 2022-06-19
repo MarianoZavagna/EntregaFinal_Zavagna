@@ -2,13 +2,13 @@
 {% load static %}
 {% block coderhouse_project_content %}
 
-<h3>Discusión General</h3>
+<p><a class="btn2 btn-danger" href="{% url 'discussion:discussion-list' %}">Regresar</a>
 <hr></hr>
 
 <p><h3>Título: {{ discussion.title }}</h3></p>
 
 {% if discussion.image %}
-<img src="{{ discussion.image.url }}">
+<img src="{{ discussion.image.url }}" height="200">
 {% endif %}
 <br><br>
 
@@ -19,7 +19,37 @@
 
 <h7\>Fecha de publicación: {{ discussion.date_posted }}</h7\> <br\><br\>
 
-<p><a class="btn2 btn-primary" href="{% url 'discussion:discussion-list' %}">Regresar a Discusiones Generales</a></p>
+
+
+<hr></hr>
+<h3>Comentarios</h3>
+
+
+{% if not discussion.comments.all %}
+    No hay comentarios... <br>
+    <a class="btn2 btn-success btn-sm" href="{% url 'discussion:comment-add' discussion.pk %}">Comentar</a>
+{% else %}
+    <a class="btn2 btn-success btn-sm" href="{% url 'discussion:comment-add' discussion.pk %}">Comentar</a>
+    <br><br>
+    {% for comment in discussion.comments.all %}
+        <strong>
+            {{ comment.author.first_name }} {{ comment.author.last_name }} - 
+            {{ comment.date_posted }}
+        </strong>
+        <br/>
+        {{ comment.description }}
+        <br><br>
+    {% endfor %}
+{% endif %}
+
+
+
+
+
+
+
+<hr></hr>
+<p><a class="btn2 btn-danger" href="{% url 'discussion:discussion-list' %}">Regresar</a>
 
 {% endblock %}</p>
 

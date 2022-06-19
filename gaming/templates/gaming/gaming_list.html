@@ -11,21 +11,19 @@
     {% for gaming in gaming_list %}
     <li>
         {{gaming}}
-        (
+        
             <a href="{% url 'gaming:gaming-detail' gaming.id %}">
-                <i class="fa fa-eye" style="color: rgb(0, 195, 255);"> </i>
+                <button type="button" class="btn btn-outline-primary btn-sm fa fa-eye" style="color: rgb(255, 255, 255);"></button>
             </a>
         {% if user.is_authenticated %}
-        |
         <a href="{% url 'gaming:gaming-update' gaming.id %}">
-            <i class="fa fa-pencil" style="color: rgb(190, 146, 0);"> </i>
+            <button type="button" class="btn btn-outline-warning btn-sm fa fa-pencil" style="color: rgb(255, 255, 255);"></button>
         </a>
-        |
         <a href="{% url 'gaming:gaming-delete' gaming.id %}">
-            <i class="fa fa-trash" style="color: rgb(243, 13, 13);"> </i>
+            <button type="button" class="btn btn-outline-danger btn-sm fa fa-trash" style="color: rgb(255, 255, 255);"></button>
         </a>
+
         {% endif %}
-        )
     </li>
     {% endfor %}
 </ul>

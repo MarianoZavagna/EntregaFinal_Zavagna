@@ -2,11 +2,14 @@
 {% load static %}
 {% block coderhouse_project_content %}
 
-<h2>Detalle del Hardware</h2>
+<p><a class="btn2 btn-danger" href="{% url 'hardware:hardware-list' %}">Regresar</a></p>
 <hr></hr>
+
 <p><h3>Hardware: {{ hardware.name }}</h3></p>
-<p><h4>Categoría: {{ hardware.category }}</h4></p>
-<h4>Descripción:</h4>
+<p><h5>Categoría: {{ hardware.category }}</h5></p>
+<h5>Descripción:</h5>
 <p><textarea readonly rows="7" cols="90" >{{ hardware.description }}</textarea></p>
-<p><a class="btn2 btn-primary" href="{% url 'hardware:hardware-list' %}">Regresar a la lista de hardwares</a></p>
+
+<hr></hr>
+<p><a class="btn2 btn-danger" href="{% url 'hardware:hardware-list' %}">Regresar</a></p>
 {% endblock %}

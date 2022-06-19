@@ -9,7 +9,7 @@ class Discussion(models.Model):
     date_posted = models.DateField('Fecha de publicación', auto_now_add=True)
 
     def __str__(self):
-        return f'{self.title} - {self.date_posted}'
+        return f'{self.title} ----> por: {self.author.first_name} {self.author.last_name} - {self.date_posted}'
 
 
 class ImagePost(models.Model):
@@ -18,3 +18,13 @@ class ImagePost(models.Model):
 
     def __str__(self):
         return f'url: {self.image.url}'
+
+
+class Comment(models.Model):
+    discussion = models.ForeignKey(Discussion, related_name="comments",on_delete=models.CASCADE)
+    author = models.ForeignKey(User, on_delete=models.CASCADE)
+    description = models.TextField('Comentario')
+    date_posted = models.DateTimeField('Fecha de publicación', auto_now_add=True)
+
+    def __str__(self):
+        return f'{self.author.first_name} {self.author.last_name} - {self.date_posted}'
