@@ -1,13 +1,10 @@
 # Instrucciones para ejecutar este proyecto
 
-- Clonar el proyecto y cambiar de rama
+- Clonar el proyecto
 ```bash
-git clone https://github.com/coder-live-class/django-coderhouse-project.git
+git clone https://github.com/MarianoZavagna/EntregaFinal_Zavagna.git
 
-cd django-coderhouse-project
-
-git checkout class_25
-
+cd EntregaFinal_Zavagna
 ```
 
 - Crear y activar entorno virtual (Windows)
@@ -156,5 +153,4 @@ git pull origin master
 Sirve para cambiar la dirección url del repositorio que tenemos por origin.
 ```bash
 git remote set-url origin <url_de_tu_repositorio_en_GitHub>
-git remote set-url origin https://github.com/coder-live-class/django-coderhouse-project.git
 ```
