@@ -1,8 +1,9 @@
 from django.shortcuts import render
 from django.db.models import Q
-
+from django.views.generic import TemplateView
 from discussion.models import Discussion
 from user.models import Avatar
+
 
 
 def index(request):
@@ -60,4 +61,22 @@ def policy(request):
 
 def terms(request):
     return render(request, "home/terms.html")
+
+
+class Error404View(TemplateView):
+    template_name = 'home/not_found.html'
+
+
+class Error505View(TemplateView):
+    template_name = 'home/not_found.html'
+
+    @classmethod
+    def as_error_view(cls):
+
+        v = cls.as_view()
+        def view(request):
+            r = v(request)
+            r.render()
+            return r
+        return view
 

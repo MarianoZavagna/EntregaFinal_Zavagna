@@ -15,7 +15,9 @@ Including another URLconf
 """
 from django.conf import settings
 from django.contrib import admin
+from django.conf.urls import handler404, handler500
 from django.urls import path, include
+from home.views import Error404View, Error505View
 
 urlpatterns = [
     path('admin/', admin.site.urls),
@@ -31,3 +33,7 @@ if settings.DEBUG:
      from django.conf.urls.static import static
      urlpatterns += static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
      urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
+
+handler404 = Error404View.as_view()
+handler500 = Error505View.as_error_view()
+
