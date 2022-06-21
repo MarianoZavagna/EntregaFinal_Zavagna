@@ -51,10 +51,6 @@ def about(request):
     return render(request, "home/about.html")
 
 
-def contact(request):
-    return render(request, "home/contact.html")
-
-
 def policy(request):
     return render(request, "home/policy.html")
 
