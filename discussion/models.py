@@ -3,6 +3,7 @@ from user.models import User
 
 class Discussion(models.Model):
     title = models.CharField('Título', max_length=100, null=True)
+    subtitle = models.CharField('Subtítulo', max_length=100, null=True)
     author = models.ForeignKey(User, on_delete=models.CASCADE)
     description = models.TextField('Descripción')
     image = models.ImageField('Imagen', upload_to='image_post', null=True, blank=True)

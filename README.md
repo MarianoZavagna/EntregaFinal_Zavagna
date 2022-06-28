@@ -1,3 +1,10 @@
+Mariano Luis Zavagna: Cambié el tema del proyecto base, la imagen de fondo y los botones, agregué el about, 
+<br>
+politicas y condiciones de la página, realicé la sección de comentarios en "Discusiones generales", adapté 
+<br>
+el bucador de inicio para que busque "Discuciones generales" y creé una página para el error 404
+<br>
+
 # Instrucciones para ejecutar este proyecto
 
 - Clonar el proyecto

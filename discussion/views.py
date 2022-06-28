@@ -23,7 +23,7 @@ class DiscussionDetailView(DetailView):
 class DiscussionCreateView(LoginRequiredMixin, CreateView):
     model = Discussion
     success_url = reverse_lazy('discussion:discussion-list')
-    fields = ['title', 'image', 'description']
+    fields = ['title', 'subtitle', 'image', 'description']
 
 # Si la forma es valida, el usuario podrá crear la 
 # discusión a su nombre
@@ -35,7 +35,7 @@ class DiscussionCreateView(LoginRequiredMixin, CreateView):
 class DiscussionUpdateView(LoginRequiredMixin, UpdateView):
     model = Discussion
     success_url = reverse_lazy('discussion:discussion-list')
-    fields = ['title', 'image', 'description']
+    fields = ['title', 'subtitle', 'image', 'description']
 
 
 class DiscussionDeleteView(LoginRequiredMixin, DeleteView):
