@@ -47,9 +47,11 @@ class CommentCreateView(LoginRequiredMixin, CreateView):
     model = Comment
     template_name = "discussion/add_comment.html"
     fields = ['description']
+    success_url = "/discussion/discussion/{discussion_id}/detail"
 
     def form_valid(self, form):
         form.instance.author = self.request.user
+        form.instance.discussion_id = self.kwargs['pk']
         return super().form_valid(form)
 
 

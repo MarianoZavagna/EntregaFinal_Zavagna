@@ -3,7 +3,7 @@
 {% block coderhouse_project_content %}
 
 <h2>Lista de Gamings</h2>
-{% if user.is_authenticated %}
+{% if user.is_superuser %}
 <a class="card_custom" href="{% url 'gaming:gaming-add' %}">Crear nuevo Gaming</a>
 {% endif %}
 <hr></hr>
