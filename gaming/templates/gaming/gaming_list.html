@@ -15,7 +15,7 @@
             <a href="{% url 'gaming:gaming-detail' gaming.id %}">
                 <button type="button" class="btn btn-outline-primary btn-sm fa fa-eye" style="color: rgb(255, 255, 255);"></button>
             </a>
-        {% if user.is_authenticated %}
+        {% if user.is_superuser %}
         <a href="{% url 'gaming:gaming-update' gaming.id %}">
             <button type="button" class="btn btn-outline-warning btn-sm fa fa-pencil" style="color: rgb(255, 255, 255);"></button>
         </a>
