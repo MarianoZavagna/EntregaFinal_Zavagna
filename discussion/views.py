@@ -17,7 +17,7 @@ class DiscussionListView(ListView):
 class DiscussionDetailView(DetailView):
     model = Discussion
     template_name = "discussion/discussion_detail.html"
-    fields = ['title', 'image', 'description']
+    fields = ['title','subtitle', 'image', 'description']
 
 
 class DiscussionCreateView(LoginRequiredMixin, CreateView):

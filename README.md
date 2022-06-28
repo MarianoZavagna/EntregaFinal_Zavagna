@@ -3,7 +3,10 @@ Mariano Luis Zavagna: Cambié el tema del proyecto base, la imagen de fondo y lo
 politicas y condiciones de la página, realicé la sección de comentarios en "Discusiones generales", adapté 
 <br>
 el bucador de inicio para que busque "Discuciones generales" y creé una página para el error 404
-<br>
+<br><br>
+Video del Proyecto <br>
+https://drive.google.com/file/d/1yTKQtZh-HOp22eqe2W4eLFTAK_pwiLkJ/view?usp=sharing
+
 
 # Instrucciones para ejecutar este proyecto
 
